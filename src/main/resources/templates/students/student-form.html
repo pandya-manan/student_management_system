@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <title>Student Management System Register New Student</title>
+</head>
+<body>
+<div class="container">
+    <h3 align="center">Student Directory</h3>
+    <hr>
+    <p class="h4 mb-4">Add New Student</p>
+    <form action="#" th:action="@{/students/save}" th:object="${student}" method="POST">
+    <input type="hidden" th:field="*{id}"/>
+        <!-- 2 column grid layout with text inputs for the first and last names -->
+        <div class="row mb-4">
+          <div class="col">
+            <div data-mdb-input-init class="form-outline">
+              <input type="text" th:field="*{firstName}" id="form3Example1" class="form-control" placeholder="First Name"/>
+              <span class="text-danger" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></span>
+              <label class="form-label" for="form3Example1">First Name</label>
+            </div>
+          </div>
+          <div class="col">
+            <div data-mdb-input-init class="form-outline">
+              <input type="text" th:field="*{lastName}"id="form3Example2" class="form-control" placeholder="Last Name"/>
+              <span class="text-danger" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></span>
+              <label class="form-label" for="form3Example2">Last Name</label>
+            </div>
+          </div>
+        </div>
+        <!-- Email input -->
+  <div data-mdb-input-init class="form-outline mb-4">
+    <input type="email" th:field="*{email}" id="form3Example3" class="form-control" placeholder="Email"/>
+    <span class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+    <label class="form-label" for="form3Example3">Email address</label>
+  </div>
+  <!--2 Column Grid For City and State Input-->
+  <div class="row mb-4">
+    <div class="col">
+      <div data-mdb-input-init class="form-outline">
+        <input type="text" th:field="*{city}" id="form3Example1" class="form-control" placeholder="City"/>
+        <span class="text-danger" th:if="${#fields.hasErrors('city')}" th:errors="*{city}"></span>
+        <label class="form-label" for="form3Example1">City</label>
+      </div>
+    </div>
+    <div class="col">
+      <div data-mdb-input-init class="form-outline">
+        <input type="text" th:field="*{state}" id="form3Example2" class="form-control" placeholder="State"/>
+        <span class="text-danger" th:if="${#fields.hasErrors('state')}" th:errors="*{state}"></span>
+        <label class="form-label" for="form3Example2">State</label>
+      </div>
+    </div>
+  </div>
+  <!--Course Entry -->
+  <div data-mdb-input-init class="form-outline mb-4">
+    <input type="text" th:field="*{course}" id="form3Example4" class="form-control" placeholder="Course"/>
+    <span class="text-danger" th:if="${#fields.hasErrors('course')}" th:errors="*{course}"></span>
+    <label class="form-label" for="form3Example4">Course</label>
+  </div>
+  <button type="submit" class="btn btn-info col-4" onclick="if(!(confirm('Are you sure you want to save this student?'))) { return false; }">Save</button>
+
+</form>
+
+
+
+</div>
+
+</body>
+
+</html>
