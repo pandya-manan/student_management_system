@@ -18,4 +18,6 @@ public interface StudentService {
 	public void deleteStudent(Integer theId);
 
 	public Page<Student> findPaginated(int page, int size);
+	
+	public List<Student> findByFirstName(String firstName);
 }

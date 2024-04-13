@@ -44,4 +44,9 @@ public class StudentServiceImpl implements StudentService {
         return studentRepo.findAll(PageRequest.of(page, size));
     }
 
+	@Override
+	public List<Student> findByFirstName(String firstName) {
+		return studentRepo.findByFirstName(firstName);
+	}
+
 }

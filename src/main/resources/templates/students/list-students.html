@@ -14,7 +14,20 @@
     <h3 align="center">Student Directory</h3>
     <hr>
     <!-- Add A Button -->
-    <a th:href="@{/students/showFormToAdd}" class="btn btn-outline-primary mb-5">Add New Student</a>
+    <a th:href="@{/students/showFormToAdd}" class="btn btn-outline-primary mb-3">Add New Student</a>
+    <form action="#" th:action="@{/students/search}" method="GET">
+   <div class="form-group row">
+    <label for="searchFirstName" class="col-sm-3 col-form-label">Search By First Name:</label>
+    <div class="col-sm-5">
+        <input type="text" class="form-control" id="searchFirstName" name="firstName" placeholder="Enter First Name">
+    </div>
+    <div class="col-sm-2">
+        <button type="submit" class="btn btn-primary">Search</button>
+    </div>
+</div>
+
+     
+    </form>
     <table class="table table-bordered table-striped table-hover">
         <thead class="thead-dark">
         <tr>

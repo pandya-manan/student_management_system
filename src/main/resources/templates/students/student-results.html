@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <title>Student Management System</title>
+</head>
+<body>
+<div class="container">
+    <h3 align="center">Student Directory</h3>
+    <hr>
+    <h2>Students Available with the First Name Entered</h2>
+ 	<br>
+	<table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th>Course</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="student : ${students}">
+                    <td th:text="${student.firstName}"></td>
+                    <td th:text="${student.lastName}"></td>
+                    <td th:text="${student.email}"></td>
+                    <td th:text="${student.city}"></td>
+                    <td th:text="${student.state}"></td>
+                    <td th:text="${student.course}"></td>
+                </tr>
+            </tbody>
+        </table>
+        <a th:href="@{/students/list}" class="btn btn-primary" onclick="if (!(confirm('Are you sure you want to go back to the main page?'))) return false">Students List</a>
+    </div>
+</body>
+</html>

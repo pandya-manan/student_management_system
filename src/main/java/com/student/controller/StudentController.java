@@ -1,5 +1,8 @@
 package com.student.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -72,5 +75,14 @@ public class StudentController {
 	{
 		studentService.deleteStudent(studentId);
 		return "redirect:/students/list";
+	}
+	
+	@GetMapping("/search")
+	public String getStudentsByFirstName(@RequestParam("firstName")String firstName,Model theModel)
+	{
+		List<Student> studentsByFirstName=new ArrayList<>();
+		studentsByFirstName=studentService.findByFirstName(firstName);
+		theModel.addAttribute("students",studentsByFirstName);
+		return "students/student-results";
 	}
 }
